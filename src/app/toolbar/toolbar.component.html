@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <button
+    *ngIf="navigationService.showBackButton"
+    mat-icon-button
+    class="back-icon"
+    aria-label="Example icon-button with menu icon"
+    (click)="navigateTo(0)"
+    routerLink="/"
+    routerLinkActive="active"
+  >
+    <mat-icon>arrow_back_ios</mat-icon>
+  </button>
+  <div class="headline">
+    <span>{{ navigationService.headline }}</span>
+  </div>
+</mat-toolbar>
