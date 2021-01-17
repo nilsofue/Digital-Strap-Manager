@@ -5,7 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class StrapConnectionService {
 
-  public strapsConnected: number = 0;
+  public names: string[] = [];
 
   constructor() { }
+
 }

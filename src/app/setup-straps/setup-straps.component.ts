@@ -21,7 +21,7 @@ export class SetupStrapsComponent implements OnInit {
   openConnectDialog(): void {
     const dialogRef = this.dialog.open(ConnectDialogComponent, {
       width: '85%',
-      height: '300px',
+      height: '320px',
       data: {}
     });
   }

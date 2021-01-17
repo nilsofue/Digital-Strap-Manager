@@ -1,7 +1,7 @@
 <div *ngIf="showFirstStep">
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
   <div class="content">
-    <div class="iconClass">
+    <div class="iconClass" style="margin-top: 40px">
       <mat-icon aria-hidden="false" aria-label="Example home icon"
         >wifi</mat-icon
       >
@@ -19,9 +19,22 @@
         >done</mat-icon
       >
     </div>
-    <div class="labelClass">
+    <div class="labelClass" style="padding-top: 10px">
       Connection successful!<br />
       Please enter a player name:
+    </div>
+    <div class="separator"></div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Input</mat-label>
+        <input [(ngModel)]="name" matInput />
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions style="padding-left: 53px">
+      <button mat-button [mat-dialog-close]="">Discard</button>
+      <button mat-button [mat-dialog-close]="" (click)="save()" cdkFocusInitial>
+        Add
+      </button>
     </div>
   </div>
 </div>

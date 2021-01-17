@@ -5,6 +5,13 @@
 </div>
 <div class="textWrapper">
   <h3>
-    {{ strapConnectionService.strapsConnected }} Straps are currently connected
+    {{ strapConnectionService.names.length }} straps are currently connected
   </h3>
 </div>
+
+<mat-list>
+  <ng-container *ngFor="let name of strapConnectionService.names">
+    <mat-list-item> {{ name }} </mat-list-item>
+    <mat-divider></mat-divider>
+  </ng-container>
+</mat-list>

@@ -17,6 +17,10 @@ import { ConnectDialogComponent } from './setup-straps/connect-dialog/connect-di
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -45,6 +49,9 @@ const routes: Routes = [
     MatProgressBarModule,
     MatStepperModule,
     MatFormFieldModule,
+    FormsModule,
+    MatInputModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
