@@ -6,7 +6,7 @@ import { ENavigationRoot } from './navigation.enum';
 })
 export class NavigationService {
 
-  public showBackButton: boolean = false;
+  public showBackButton: boolean = true;
   public headline: string = 'Digitized Straps';
 
   constructor() { }

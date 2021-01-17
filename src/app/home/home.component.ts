@@ -8,7 +8,11 @@ import { NavigationService } from '../toolbar/navigation.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _navigationService: NavigationService) { }
+  constructor(
+    private _navigationService: NavigationService,
+  ) {
+    this._navigationService.showBackButton = false;
+  }
 
   ngOnInit(): void {
   }

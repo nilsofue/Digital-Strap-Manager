@@ -1,9 +1,27 @@
-<mat-progress-bar mode="indeterminate"></mat-progress-bar>
-<div class="content">
-  <div class="iconClass">
-    <mat-icon aria-hidden="false" aria-label="Example home icon">wifi</mat-icon>
+<div *ngIf="showFirstStep">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  <div class="content">
+    <div class="iconClass">
+      <mat-icon aria-hidden="false" aria-label="Example home icon"
+        >wifi</mat-icon
+      >
+    </div>
+    <div class="labelClass">
+      Ready to connect. Hold the strap near the device.
+    </div>
   </div>
-  <div class="labelClass">
-    Ready to connect. Hold the strap near the device.
+</div>
+
+<div ng *ngIf="showSecondStep">
+  <div class="content">
+    <div class="iconClass done">
+      <mat-icon aria-hidden="false" aria-label="Example home icon"
+        >done</mat-icon
+      >
+    </div>
+    <div class="labelClass">
+      Connection successful!<br />
+      Please enter a player name:
+    </div>
   </div>
 </div>

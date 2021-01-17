@@ -15,6 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ConnectDialogComponent } from './setup-straps/connect-dialog/connect-dialog.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -41,6 +43,8 @@ const routes: Routes = [
     MatButtonModule,
     MatIconModule,
     MatProgressBarModule,
+    MatStepperModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
