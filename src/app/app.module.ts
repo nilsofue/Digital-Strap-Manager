@@ -21,12 +21,15 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { GameComponent } from './game/game.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "team-game", component: TeamGameComponent },
   { path: "setup-straps", component: SetupStrapsComponent },
+  { path: "game", component: GameComponent },
 ];
 
 @NgModule({
@@ -37,6 +40,7 @@ const routes: Routes = [
     SetupStrapsComponent,
     ToolbarComponent,
     ConnectDialogComponent,
+    GameComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +59,8 @@ const routes: Routes = [
     MatListModule,
     MatInputModule,
     MatSelectModule,
+    MatButtonToggleModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
