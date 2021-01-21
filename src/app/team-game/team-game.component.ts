@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { StrapConnectionService } from '../setup-straps/strap-connection.service';
 
+export interface Teams {
+  name: string,
+  color: string,
+}
 @Component({
   selector: 'app-team-game',
   templateUrl: './team-game.component.html',
@@ -8,20 +12,27 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class TeamGameComponent implements OnInit {
 
-  public numberOfTeams: number = 0;
-  public teamNames: string[] = [];
+  public numberOfTeams: number = 2;
+  public teamNames: Teams[] = [];
+  private _colors: string[] = ["Blue ", "Red", "Yellow", "Green", "Orange", "Violet", "Indigo"];
 
-  constructor() { }
+  constructor(public strapConnectionService: StrapConnectionService) {
+    this.onTeamNumberChange();
+  }
 
   ngOnInit(): void {
   }
 
   onTeamNumberChange() {
-    this.numberOfTeams ? null : this.numberOfTeams = 0;
+    if (this.numberOfTeams === null) return;
     this.teamNames = [];
     for (let i = 1; i <= this.numberOfTeams; i++) {
-      this.teamNames.push('Team ' + i);
+      this.teamNames.push(
+        {
+          name: 'Team ' + i,
+          color: this._colors[(i - 1) % 7]
+        }
+      );
     }
-
   }
 }

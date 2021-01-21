@@ -2,3 +2,26 @@
   text-align: center;
   padding-top: 28px;
 }
+
+.teamWrapper {
+  display: flex;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.teamColor {
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.nextButton {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+.prevButton {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}

@@ -1,39 +1,84 @@
-<div class="listWrapper">
-  <mat-form-field appearance="fill">
-    <mat-label>Select a team game</mat-label>
-    <mat-select>
-      <mat-option value="option">Handball</mat-option>
-      <mat-option value="option">Football</mat-option>
-      <mat-option value="option">Basketball</mat-option>
-      <mat-option value="option">Volleyball</mat-option>
-      <mat-option value="option">Hockey</mat-option>
-      <mat-option value="option">Badminton</mat-option>
-      <mat-option value="option">Kickball</mat-option>
-      <mat-option value="option">Rugby</mat-option>
-      <mat-option value="option">Baseball</mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
+<mat-horizontal-stepper>
+  <mat-step label="Game" state="phone">
+    <div>
+      <div class="listWrapper">
+        <mat-form-field appearance="fill">
+          <mat-label>Select a team game</mat-label>
+          <mat-select>
+            <mat-option value="option">Handball</mat-option>
+            <mat-option value="option">Football</mat-option>
+            <mat-option value="option">Basketball</mat-option>
+            <mat-option value="option">Volleyball</mat-option>
+            <mat-option value="option">Hockey</mat-option>
+            <mat-option value="option">Badminton</mat-option>
+            <mat-option value="option">Kickball</mat-option>
+            <mat-option value="option">Rugby</mat-option>
+            <mat-option value="option">Baseball</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
 
-<div class="listWrapper">
-  <mat-form-field appearance="fill" style="width: 150px">
-    <mat-label>Number of teams</mat-label>
-    <input
-      matInput
-      type="number"
-      min="1"
-      [(ngModel)]="numberOfTeams"
-      (keyup)="onTeamNumberChange()"
-    />
-  </mat-form-field>
-</div>
+      <div class="listWrapper">
+        <mat-form-field appearance="fill" style="width: 150px">
+          <mat-label>Number of teams</mat-label>
+          <input
+            matInput
+            type="number"
+            min="1"
+            [(ngModel)]="numberOfTeams"
+            (keyup)="onTeamNumberChange()"
+          />
+        </mat-form-field>
+      </div>
 
-<h1 style="text-align: center; padding-top: 30px">Team colors</h1>
+      <h1
+        *ngIf="teamNames.length"
+        style="text-align: center; padding-top: 30px"
+      >
+        Teams
+      </h1>
 
-<mat-list>
-  <ng-container *ngFor="let team of teamNames">
-    <div mat-line>{{ team }}</div>
-    <mat-icon mat-list-icon>fiber_manual_record</mat-icon>
-    <mat-divider></mat-divider>
-  </ng-container>
-</mat-list>
+      <mat-list>
+        <ng-container *ngFor="let team of teamNames">
+          <div class="teamWrapper">
+            <div mat-line>{{ team.name }}</div>
+            <div class="teamColor">
+              <mat-icon [style.color]="team.color" mat-list-icon
+                >fiber_manual_record</mat-icon
+              >
+            </div>
+          </div>
+          <mat-divider></mat-divider>
+        </ng-container>
+      </mat-list>
+    </div>
+
+    <div class="nextButton">
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step label="Players" state="chat">
+    <div>
+      <h1 style="text-align: center; padding-top: 30px">Select players</h1>
+
+      <mat-selection-list>
+        <mat-list-option
+          *ngFor="let name of strapConnectionService.names"
+          [color]="'primary'"
+        >
+          {{ name }}
+          <mat-divider></mat-divider>
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+    <div class="prevButton">
+      <button mat-button matStepperPrevious>Back</button>
+    </div>
+    <div class="nextButton">
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step label="Presetting">
+    <p>You're welcome.</p>
+  </mat-step>
+</mat-horizontal-stepper>
