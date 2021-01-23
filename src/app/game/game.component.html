@@ -10,13 +10,33 @@
 </div>
 
 <div style="text-align: center; margin-bottom: 20px">
-  <button style="width: 150px" mat-flat-button color="primary">
+  <button
+    style="width: 150px"
+    mat-flat-button
+    color="primary"
+    (click)="notify()"
+  >
     Notify player
   </button>
 </div>
 <div style="text-align: center; margin-bottom: 20px">
-  <button style="width: 150px" mat-flat-button color="primary">Restart</button>
+  <button
+    style="width: 150px"
+    mat-flat-button
+    color="primary"
+    (click)="restart()"
+  >
+    Restart
+  </button>
 </div>
 <div style="text-align: center; margin-bottom: 20px">
-  <button style="width: 150px" mat-flat-button color="primary">End</button>
+  <button
+    style="width: 150px"
+    mat-flat-button
+    color="primary"
+    routerLink="/"
+    routerLinkActive="active"
+  >
+    End
+  </button>
 </div>

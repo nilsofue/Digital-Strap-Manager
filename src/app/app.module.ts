@@ -24,6 +24,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { GameComponent } from './game/game.component';
+import { NotifyComponent } from './game/notify/notify.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -41,6 +43,7 @@ const routes: Routes = [
     ToolbarComponent,
     ConnectDialogComponent,
     GameComponent,
+    NotifyComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,7 @@ const routes: Routes = [
     MatSelectModule,
     MatButtonToggleModule,
     MatCheckboxModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
