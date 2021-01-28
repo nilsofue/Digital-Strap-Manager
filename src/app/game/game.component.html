@@ -1,10 +1,108 @@
-<h2 style="text-align: center; padding-top: 30px">Time</h2>
-<h1 style="text-align: center; padding-top: 5px; padding-bottom: 20px">
+<h2 style="text-align: center; padding-top: 16px; color: grey">Time</h2>
+<h1 style="text-align: center; margin-top: -17px; font-size: 20px">
   {{ currentTime }}
 </h1>
 
+<div
+  style="
+    display: flex;
+    width: 380px;
+    height: 135px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 20px;
+    margin-top: -8px;
+  "
+>
+  <div
+    class="trophy"
+    [ngClass]="{
+      team1: pointTeam1 > pointTeam2,
+      team2: pointTeam1 < pointTeam2,
+      draw: pointTeam1 == pointTeam2
+    }"
+  >
+    <mat-icon
+      *ngIf="strapConnectionService.selectedIcon == 'star'"
+      style="color: rgb(255, 208, 0); font-size: 30px"
+      >star</mat-icon
+    >
+    <mat-icon
+      *ngIf="strapConnectionService.selectedIcon == 'trophy'"
+      style="color: rgb(255, 208, 0); font-size: 30px"
+      >emoji_events</mat-icon
+    >
+  </div>
+  <div style="position: relative; margin-top: 39px; width: 100px">
+    <div style="text-align: center">
+      <mat-icon style="color: red">lens</mat-icon>
+    </div>
+    <h2 style="text-align: center; font-size: 15px; color: grey">Team 1</h2>
+  </div>
+
+  <div
+    style="position: relative; margin-top: 5px; width: 60px; text-align: center"
+  >
+    <button mat-icon-button (click)="pointTeam1 = pointTeam1 + 1">
+      <mat-icon>keyboard_arrow_up</mat-icon>
+    </button>
+    <h1 style="font-size: 44px; margin-bottom: 0">{{ pointTeam1 }}</h1>
+    <button
+      [disabled]="pointTeam1 == 0"
+      mat-icon-button
+      (click)="pointTeam1 = pointTeam1 - 1"
+    >
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+  </div>
+  <div
+    style="position: relative; margin-top: 5px; width: 60px; text-align: center"
+  >
+    <h1 style="font-size: 44px; color: grey; padding-top: 38px">-</h1>
+  </div>
+
+  <div
+    style="position: relative; margin-top: 5px; width: 60px; text-align: center"
+  >
+    <button mat-icon-button (click)="pointTeam2 = pointTeam2 + 1">
+      <mat-icon>keyboard_arrow_up</mat-icon>
+    </button>
+    <h1 style="font-size: 44px; margin-bottom: 0">{{ pointTeam2 }}</h1>
+    <button
+      [disabled]="pointTeam2 == 0"
+      mat-icon-button
+      (click)="pointTeam2 = pointTeam2 - 1"
+    >
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+  </div>
+
+  <div style="position: relative; margin-top: 39px; width: 100px">
+    <div style="text-align: center">
+      <mat-icon style="color: green">lens</mat-icon>
+    </div>
+    <h2 style="text-align: center; font-size: 15px; color: grey">Team 2</h2>
+  </div>
+</div>
+
 <div style="text-align: center; margin-bottom: 20px">
-  <button style="width: 150px" mat-flat-button color="primary">
+  <button
+    *ngIf="!gameIsRunning"
+    style="width: 150px"
+    mat-flat-button
+    color="primary"
+    (click)="interrupt()"
+  >
+    Resume
+  </button>
+  <button
+    *ngIf="gameIsRunning"
+    style="width: 150px"
+    mat-flat-button
+    color="primary"
+    (click)="interrupt()"
+  >
     Interrupt
   </button>
 </div>

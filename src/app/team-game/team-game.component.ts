@@ -23,7 +23,6 @@ export class TeamGameComponent implements OnInit {
   public numberOfTeams: number = 2;
   public teamNames: Teams[] = [];
   private _colors: string[] = ["Red", "Green", "Blue ", "Yellow", "Orange", "Violet", "Indigo"];
-  public selectedIcon: string = "";
   public showStartGame: boolean = false;
   public showPrevious: boolean = false;
   public showNext: boolean = true;
@@ -42,12 +41,12 @@ export class TeamGameComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(IconSelectionComponent, {
       width: '300px',
-      data: { icon: this.selectedIcon }
+      data: { icon: this.strapConnectionService.selectedIcon }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.selectedIcon = result;
+      this.strapConnectionService.selectedIcon = result;
     });
   }
 

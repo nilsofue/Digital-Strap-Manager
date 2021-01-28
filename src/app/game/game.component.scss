@@ -1,0 +1,22 @@
+.trophy {
+  position: absolute;
+  top: 20px;
+  visibility: hidden;
+  transition: left 1s;
+  transition: right 1s;
+}
+
+.team1 {
+  visibility: visible;
+  right: 356px;
+}
+
+.team2 {
+  visibility: visible;
+  right: 10px;
+}
+
+.draw {
+  visibility: visible;
+  right: 181px;
+}

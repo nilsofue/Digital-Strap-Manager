@@ -4,14 +4,14 @@
   aria-labelledby="example-radio-group-label"
   class="example-radio-group"
 >
-  <div style="display: inline-grid">
+  <div style="display: inline-grid; margin-left: 87px">
     <mat-radio-button
       [color]="'primary'"
       class="example-radio-button"
       [value]="'star'"
       (click)="data.icon = 'star'"
     >
-      <mat-icon style="font-size: 40px">star</mat-icon>
+      <mat-icon style="font-size: 40px; color: rgb(255, 208, 0)">star</mat-icon>
     </mat-radio-button>
     <mat-radio-button
       [color]="'primary'"
@@ -19,7 +19,9 @@
       [value]="'trophy'"
       (click)="data.icon = 'trophy'"
     >
-      <mat-icon style="font-size: 40px">emoji_events</mat-icon>
+      <mat-icon style="font-size: 40px; color: rgb(255, 208, 0)"
+        >emoji_events</mat-icon
+      >
     </mat-radio-button>
   </div>
 </mat-radio-group>

@@ -117,13 +117,17 @@
           [color]="'primary'"
           class="example-margin"
           >Show which team is winning
-          <ng-container *ngIf="false && selectedIcon.length">
+          <ng-container
+            *ngIf="false && strapConnectionService.selectedIcon.length"
+          >
             <mat-icon
               style="position: absolute"
-              *ngIf="selectedIcon === 'trophy'"
+              *ngIf="strapConnectionService.selectedIcon === 'trophy'"
               >emoji_events</mat-icon
             >
-            <mat-icon style="position: absolute" *ngIf="selectedIcon === 'star'"
+            <mat-icon
+              style="position: absolute"
+              *ngIf="strapConnectionService.selectedIcon === 'star'"
               >star</mat-icon
             >
           </ng-container>
