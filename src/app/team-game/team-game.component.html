@@ -1,5 +1,5 @@
-<mat-horizontal-stepper>
-  <mat-step label="Game" state="phone">
+<mat-horizontal-stepper #stepper (selectionChange)="selectionChange($event)">
+  <mat-step #step label="Game" state="phone">
     <div>
       <div class="listWrapper">
         <mat-form-field appearance="fill">
@@ -52,10 +52,6 @@
         </ng-container>
       </mat-list>
     </div>
-
-    <div class="nextButton">
-      <button mat-button matStepperNext>Next</button>
-    </div>
   </mat-step>
   <mat-step label="Players" state="chat">
     <div>
@@ -82,12 +78,6 @@
         </mat-button-toggle-group>
       </div>
     </div>
-    <div class="prevButton">
-      <button mat-button matStepperPrevious>Back</button>
-    </div>
-    <div class="nextButton">
-      <button mat-button matStepperNext>Next</button>
-    </div>
   </mat-step>
   <mat-step label="Presetting">
     <div>
@@ -105,24 +95,54 @@
           class="example-margin"
           >Flashing straps before game ends</mat-checkbox
         >
+        <mat-divider></mat-divider>
+
         <mat-checkbox
           style="padding: 10px"
           [color]="'primary'"
           class="example-margin"
           >Allow notifications</mat-checkbox
         >
+        <mat-divider></mat-divider>
         <mat-checkbox
           style="padding: 10px"
           [color]="'primary'"
           class="example-margin"
           >Show remaining time</mat-checkbox
         >
-      </div>
-      <div style="text-align: center; padding-top: 50px">
-        <button mat-flat-button color="primary" routerLink="/game">
-          Start game
-        </button>
+        <mat-divider></mat-divider>
+        <mat-checkbox
+          (click)="openDialog()"
+          style="padding: 10px"
+          [color]="'primary'"
+          class="example-margin"
+          >Show which team is winning
+          <ng-container *ngIf="false && selectedIcon.length">
+            <mat-icon
+              style="position: absolute"
+              *ngIf="selectedIcon === 'trophy'"
+              >emoji_events</mat-icon
+            >
+            <mat-icon style="position: absolute" *ngIf="selectedIcon === 'star'"
+              >star</mat-icon
+            >
+          </ng-container>
+        </mat-checkbox>
       </div>
     </div>
   </mat-step>
 </mat-horizontal-stepper>
+
+<div class="footer">
+  <div *ngIf="showStartGame" class="nextButton">
+    <button mat-flat-button color="primary" routerLink="/game">
+      Start game
+    </button>
+  </div>
+  <div *ngIf="showPrevious" class="prevButton">
+    <button mat-button (click)="stepper.previous()">Back</button>
+  </div>
+  <div *ngIf="showNext" class="nextButton">
+    <button (click)="stepper.next()" mat-button>Next</button>
+  </div>
+</div>

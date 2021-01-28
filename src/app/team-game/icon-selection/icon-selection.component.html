@@ -1,0 +1,29 @@
+<h1 style="text-align: center" mat-dialog-title>Select an icon</h1>
+
+<mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+>
+  <div style="display: inline-grid">
+    <mat-radio-button
+      [color]="'primary'"
+      class="example-radio-button"
+      [value]="'star'"
+      (click)="data.icon = 'star'"
+    >
+      <mat-icon style="font-size: 40px">star</mat-icon>
+    </mat-radio-button>
+    <mat-radio-button
+      [color]="'primary'"
+      class="example-radio-button"
+      [value]="'trophy'"
+      (click)="data.icon = 'trophy'"
+    >
+      <mat-icon style="font-size: 40px">emoji_events</mat-icon>
+    </mat-radio-button>
+  </div>
+</mat-radio-group>
+
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data.icon" cdkFocusInitial>Ok</button>
+</div>
