@@ -1,6 +1,8 @@
-# Pad
+# Digital-Strap-Manager
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.7.
+Our vision is a digital strap like an armband that students can wear during physical education classes. The visible side consists of a kind of display that can show information. You can use touch and gestures to enter information into the device. The armband can also vibrate to give the user haptic feedback.
+
+This is an app prototype to manage the digital straps.
 
 ## Development server
 
